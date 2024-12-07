@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Bit Retreat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">8 Bit Retreat</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/services">Services</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <section>
+      <h2>Products</h2>
+      <ul>
+        {% for product in products %}
+          <li>
+            <a href="/product/{{ product['id'] }}">{{ product['name'] }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+</body>
+</html>

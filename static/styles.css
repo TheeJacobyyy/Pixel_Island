@@ -1,0 +1,91 @@
+body {
+    background-image: url(8BitOcean.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: rgba(0, 0, 0, 0.515); /* Black background */
+    padding: 1em 0em; /* Adds space around the navbar */
+    position: absolute; /* Sticks the navbar to the top */
+    top: 0;
+    width: 100%; /* Makes it span the full width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1000; /* Keeps it above other elements */
+    margin: 0;
+    left: 0px;
+}
+
+.navbar .logo {
+    color: white; /* White logo text */
+    text-decoration: none; /* Removes underline */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar .nav-links a {
+    color: white; /* White text for links */
+    text-decoration: none; /* Removes underline */
+    margin-left: 1.5em; /* Space between links */
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth hover effect */
+}
+
+.navbar .nav-links a:hover {
+    color: rgb(255, 255, 255); /* Green color on hover */
+}
+.listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.listing-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.listing-card img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+.listing-card h3 {
+    margin: 10px 0;
+}
+.listing-card p {
+    margin: 8px 0;
+    color: #555;
+}
+.listing-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.listing-card a:hover {
+    background: #0056b3;
+}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product['name'] }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ product['name'] }}</h1>
+    </header>
+    <section>
+        <p>Price: ${{ product['price'] }}</p>
+        <a href="/add_to_cart/{{ product['id'] }}">Add to Cart</a>
+    </section>
+</body>
+</html>

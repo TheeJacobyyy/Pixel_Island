@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <header>
+        <h1>Shopping Cart</h1>
+    </header>
+    <section>
+        <h2>Items in Your Cart</h2>
+        <ul>
+            {% for item in cart_items %}
+                <li>
+                    {{ item['product']['name'] }} - Quantity: {{ item['quantity'] }}
+                </li>
+            {% endfor %}
+        </ul>
+        <p>Total: ${{ total }}</p>
+    </section>
+</body>
+</html>
