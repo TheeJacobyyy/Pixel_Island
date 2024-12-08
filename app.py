@@ -4,14 +4,18 @@ app = Flask(__name__)
 app.secret_key = 'kjasdlslkaslaksdjllkasldj'
 
 products = [
-    {'id': 1, 'name': 'Tropical Island', 'price': 500},
-    {'id': 2, 'name': 'Tropical Island', 'price': 750},
-    {'id': 3, 'name': 'Tropical Island', 'price': 1000},
+    {'id': 1, 'name': 'Tropical Island', 'price': 500, 'image': '8BitRetreatOne.jpg'},
+    {'id': 2, 'name': 'Winter Island', 'price': 750, 'image': 'WinterIsland.jpg'},
+    {'id': 3, 'name': 'Lava Island', 'price': 1000, 'image': 'LavaIsland.jpg'},
+]
+water_sports_section = [
+    {'id': 1, 'name': 'Jet Ski', 'description': '1500cc Jet Ski', 'price': 50, 'image': 'JetSki.jpg'},
+    {'id': 2, 'name': 'Yacht', 'description': 'Super Sport sails yacht for all your luxury sailing needs', 'price': 150, 'image': 'Yacht.jpg'}
 ]
 
 @app.route("/")
 def index():
-    return render_template("index.html", products=products)
+    return render_template("index.html", products=products, water_sports_section=water_sports_section)
 
 @app.route("/product/<int:id>")
 def product(id):

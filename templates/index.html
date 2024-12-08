@@ -18,15 +18,34 @@
             </div>
         </nav>
     </header>
-    <section>
-      <h2>Products</h2>
-      <ul>
+    <section class="products-section">
+      <h2 class="products-title">Island Retreats</h2>
+      <div class="products-container">
         {% for product in products %}
-          <li>
-            <a href="/product/{{ product['id'] }}">{{ product['name'] }}</a>
-          </li>
+          <div class="product-card">
+            <img src="{{ url_for('static', filename=product['image']) }}" alt="{{ product['name'] }}">
+            <h3>{{ product['name'] }}</h3>
+            <p>{{ product['description'] }}</p>
+            <p>Price: ${{product['price'] }}</p>
+            <a href='/product/{{ product['id'] }}' class="details-button">View Details</a>
+          </div>
         {% endfor %}
-      </ul>
+      </div>
+    </section>
+
+    <section class="water-sports-section">
+      <h2 class="section-title">Water Sports Rentals</h2>
+      <div class="listings-container">
+        {% for item in water_sports_section %}
+          <div class="listing-card">
+            <img src="{{ url_for('static', filename=item['image']) }}" alt="{{ item['name'] }}">
+            <h3>{{ item['name'] }}</h3>
+            <p>{{ item['description'] }}</p>
+            <p>Price: ${{ item['price'] }}</p>
+            <a href="/item/{{ item['id'] }}" class="details-button">View Details</a>
+          </div>
+        {% endfor %}
+      </div>
     </section>
 </body>
 </html>

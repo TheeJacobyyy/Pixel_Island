@@ -56,36 +56,142 @@ a {
 .navbar .nav-links a:hover {
     color: rgb(255, 255, 255); /* Green color on hover */
 }
-.listings {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+.products-section {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.products-title {
+    font-size: 2em;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
     padding: 20px;
 }
-.listing-card {
-    border: 1px solid #ccc;
+
+.product-card {
+    background: rgba(0, 0, 0, 0.571);
+    border: 1px solid #ddd;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.listing-card img {
-    max-width: 100%;
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
     border-radius: 8px;
+    margin-bottom: 10px;
 }
-.listing-card h3 {
+
+.product-card h3 {
+    font-size: 1.5em;
     margin: 10px 0;
+    color: white;
 }
-.listing-card p {
-    margin: 8px 0;
-    color: #555;
+
+.product-card p {
+    color: white;
+    margin: 5px 0;
 }
-.listing-card a {
+
+.details-button {
     display: inline-block;
     margin-top: 10px;
-    padding: 8px 16px;
-    background: #007bff;
+    padding: 10px 20px;
+    background-color: #007bff;
     color: white;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
 }
-.listing-card a:hover {
-    background: #0056b3;
+
+.details-button:hover {
+    background-color: #0056b3;
+}
+
+.water-sports-section {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.jet-ski-yachts-section {
+  text-align: center;
+  background-color: #f8f9fa; /* Light background for contrast */
+  padding: 60px 20px;
+}
+
+.section-title {
+    font-size: 2em;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Listings Container */
+.listings-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.listing-card {
+    background: rgba(0, 0, 0, 0.571);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.listing-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.listing-card h3 {
+  font-size: 1.5em;
+  margin: 10px;
+  color: white;
+}
+
+.listing-card p {
+  margin: 10px;
+  color: white;
+}
+
+.details-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
 }
