@@ -4,18 +4,22 @@ app = Flask(__name__)
 app.secret_key = 'kjasdlslkaslaksdjllkasldj'
 
 products = [
-    {'id': 1, 'name': 'Tropical Island', 'price': 500, 'image': '8BitRetreatOne.jpg'},
-    {'id': 2, 'name': 'Winter Island', 'price': 750, 'image': 'WinterIsland.jpg'},
-    {'id': 3, 'name': 'Lava Island', 'price': 1000, 'image': 'LavaIsland.jpg'},
+    {'id': 1, 'name': 'Tropical Island', 'description': 'Serene tropical retreat.', 'price': 500, 'image': '8BitRetreatOne.jpg'},
+    {'id': 2, 'name': 'Winter Island', 'description': 'A winter wonderland island.', 'price': 750, 'image': 'WinterIsland.jpg'},
+    {'id': 3, 'name': 'Lava Island', 'description': 'A warm exotic island with a marvelous volcano.', 'price': 1000, 'image': 'LavaIsland.jpg'},
 ]
 water_sports_section = [
     {'id': 1, 'name': 'Jet Ski', 'description': '1500cc Jet Ski', 'price': 50, 'image': 'JetSki.jpg'},
     {'id': 2, 'name': 'Yacht', 'description': 'Super Sport sails yacht for all your luxury sailing needs', 'price': 150, 'image': 'Yacht.jpg'}
 ]
 
-@app.route("/")
+@app.route('/')
 def index():
-    return render_template("index.html", products=products, water_sports_section=water_sports_section)
+    featured_products = [
+        {'id': 1, 'name': 'Tropical Island', 'description': 'Serene tropical retreat.', 'price': 500, 'image': '8BitRetreatOne.jpg'},
+        {'id': 3, 'name': 'Lava Island', 'description': 'A warm exotic island with a marvelous volcano.', 'price': 1000, 'image': 'LavaIsland.jpg'},
+    ]
+    return render_template('index.html', products=products, featured_products=featured_products, water_sports_section=water_sports_section)
 
 @app.route("/product/<int:id>")
 def product(id):
@@ -35,6 +39,10 @@ def add_to_cart(id):
         session['cart'] = {}
     session['cart'][id] = session['cart'].get(id, 0) + 1
     return redirect('/cart')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

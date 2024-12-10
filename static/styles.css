@@ -1,5 +1,5 @@
 body {
-    background-image: url(8BitOcean.jpg);
+    background-image: url(images/8BitOcean.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -41,20 +41,22 @@ a {
 .navbar .logo {
     color: white; /* White logo text */
     text-decoration: none; /* Removes underline */
-    font-size: 1.5em;
+    font-size: 1.7em;
     font-weight: bold;
 }
 
 .navbar .nav-links a {
     color: white; /* White text for links */
     text-decoration: none; /* Removes underline */
-    margin-left: 1.5em; /* Space between links */
+    margin-left: 1.7em; /* Space between links */
     font-weight: bold;
     transition: color 0.3s; /* Smooth hover effect */
+    padding-right: 10px;
+    font-size: 1.1em;
 }
 
 .navbar .nav-links a:hover {
-    color: rgb(255, 255, 255); /* Green color on hover */
+    color: rgb(204, 204, 204); /* Green color on hover */
 }
 
 .products-section {
@@ -181,6 +183,11 @@ a {
   color: white;
 }
 
+.listing-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 .listing-card p {
   margin: 10px;
   color: white;
@@ -194,4 +201,126 @@ a {
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
+}
+
+.featured-carousel {
+  text-align: center;
+  margin: 30px 0;
+  margin-top: 30px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 50%; /* Reduce the width to fit better */
+  max-width: 1000px; /* Set a maximum width */
+  margin: auto;
+  border-radius: 10px; /* Optional: Rounded corners */
+}
+
+.carousel {
+  display: flex;
+  position: relative;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #00000091;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item img {
+  max-width: 100%;
+  max-height: 300px; /* Set a maximum height */
+  object-fit: cover; /* Ensure images are cropped proportionately */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.792);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+.carousel-item h3 {
+  font-size: 1.5em;
+  margin: 10px;
+  color: white;
+}
+
+.carousel-item p {
+  margin: 10px;
+  color: white;
+}
+
+.featured-title {
+    font-size: 2em;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.carousel-item .details-btn {
+  color: white; /* Button text color */
+  background-color: #007bff; /* Keep button background blue (optional) */
+  border: none;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.about-section {
+    text-align: center;
+    margin: 50px auto;
+    margin-top: 150px;
+    padding: 20px;
+    max-width: 800px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.522);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.about-section img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.about-section h1 {
+    color: white;
 }

@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ product['name'] }}</title>
-</head>
-<body>
-    <header>
-        <h1>{{ product['name'] }}</h1>
-    </header>
-    <section>
-        <p>Price: ${{ product['price'] }}</p>
-        <a href="/add_to_cart/{{ product['id'] }}">Add to Cart</a>
-    </section>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} - Details{% endblock %}
+
+{% block content %}
+<section class="product">
+    <h2>{{ product.name }}</h2>
+    <div class="product-card">
+        <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+        <p>{{ product.description }}</p>
+        <p><strong>Price:</strong> ${{ product.price }}</p>
+        <a href="/" class="back-btn">Go Back</a>
+    </div>
+</section>
+{% endblock %}

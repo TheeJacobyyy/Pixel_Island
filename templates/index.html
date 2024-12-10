@@ -1,51 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8 Bit Retreat</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <a href="/" class="logo">8 Bit Retreat</a>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/services">Services</a>
-                <a href="/contact">Contact</a>
-            </div>
-        </nav>
-    </header>
-    <section class="products-section">
-      <h2 class="products-title">Island Retreats</h2>
-      <div class="products-container">
-        {% for product in products %}
-          <div class="product-card">
-            <img src="{{ url_for('static', filename=product['image']) }}" alt="{{ product['name'] }}">
-            <h3>{{ product['name'] }}</h3>
-            <p>{{ product['description'] }}</p>
-            <p>Price: ${{product['price'] }}</p>
-            <a href='/product/{{ product['id'] }}' class="details-button">View Details</a>
-          </div>
-        {% endfor %}
-      </div>
-    </section>
+{% extends 'base.html' %}
 
-    <section class="water-sports-section">
-      <h2 class="section-title">Water Sports Rentals</h2>
-      <div class="listings-container">
-        {% for item in water_sports_section %}
-          <div class="listing-card">
-            <img src="{{ url_for('static', filename=item['image']) }}" alt="{{ item['name'] }}">
-            <h3>{{ item['name'] }}</h3>
-            <p>{{ item['description'] }}</p>
-            <p>Price: ${{ item['price'] }}</p>
-            <a href="/item/{{ item['id'] }}" class="details-button">View Details</a>
-          </div>
-        {% endfor %}
+{% block title %}Home - 8 Bit Retreat{% endblock %}
+
+{% block content %}
+<section class="featured-carousel">
+  <h2 class="featured-title">Featured Listings</h2>
+  <div class="carousel-container">
+    <div class="carousel">
+      {% for product in featured_products %}
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='images/' + product['image']) }}" alt="{{ product['name'] }}">
+        <h3>{{ product['name'] }}</h3>
+        <p>{{ product['description'] }}</p>
+        <p><strong>Price:</strong> ${{ product['price'] }}</p>
+        <a href="/product/{{ product['id'] }}" class="details-btn">View Details</a>
       </div>
-    </section>
-</body>
-</html>
+      {% endfor %}
+    </div>
+  </div>
+  <button class="carousel-control prev">&lt;</button>
+  <button class="carousel-control next">&gt;</button>
+</section>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<section class="products-section">
+  <h2 class="products-title">Island Retreats</h2>
+  <div class="products-container">
+    {% for product in products %}
+      <div class="product-card">
+        <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product['name'] }}">
+        <h3>{{ product['name'] }}</h3>
+        <p>{{ product['description'] }}</p>
+        <p>Price: ${{product['price'] }}</p>
+        <a href='/product/{{ product['id'] }}' class="details-button">View Details</a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="water-sports-section">
+  <h2 class="section-title">Water Sports Rentals</h2>
+  <div class="listings-container">
+    {% for item in water_sports_section %}
+      <div class="listing-card">
+        <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item['name'] }}">
+        <h3>{{ item['name'] }}</h3>
+        <p>{{ item['description'] }}</p>
+        <p>Price: ${{ item['price'] }}</p>
+        <a href="/item/{{ item['id'] }}" class="details-button">View Details</a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
