@@ -34,6 +34,8 @@
         <p>{{ product['description'] }}</p>
         <p>Price: ${{product['price'] }}</p>
         <a href='/product/{{ product['id'] }}' class="details-button">View Details</a>
+        
+        <a href="{{ url_for('book', product_id=product.id) }}" class="book-now-btn">Book Now</a>
       </div>
     {% endfor %}
   </div>
@@ -53,4 +55,5 @@
     {% endfor %}
   </div>
 </section>
+
 {% endblock %}

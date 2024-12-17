@@ -1,7 +1,12 @@
 from flask import Flask, render_template, redirect, request, url_for, session
+import json
+from datetime import datetime
+import os
 
 app = Flask(__name__)
 app.secret_key = 'kjasdlslkaslaksdjllkasldj'
+
+BOOKING_FILE = "bookings.json"
 
 products = [
     {'id': 1, 'name': 'Tropical Island', 'description': 'Serene tropical retreat.', 'price': 500, 'image': '8BitRetreatOne.jpg'},
@@ -13,6 +18,17 @@ water_sports_section = [
     {'id': 2, 'name': 'Yacht', 'description': 'Super Sport sails yacht for all your luxury sailing needs', 'price': 150, 'image': 'Yacht.jpg'}
 ]
 
+def load_bookings():
+    try:
+        with open(BOOKING_FILE, "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return []
+    
+def save_bookings(bookings):
+    with open(BOOKING_FILE, "w") as file:
+        json.dump(bookings, file, indent=4)
+
 @app.route('/')
 def index():
     featured_products = [
@@ -20,6 +36,28 @@ def index():
         {'id': 3, 'name': 'Lava Island', 'description': 'A warm exotic island with a marvelous volcano.', 'price': 1000, 'image': 'LavaIsland.jpg'},
     ]
     return render_template('index.html', products=products, featured_products=featured_products, water_sports_section=water_sports_section)
+
+@app.route("/book/<int:product_id>", methods=["GET", "POST"])
+def book(product_id):
+    product = next((p for p in products if p['id'] == product_id), None)
+    if not product:
+        return redirect(url_for("index"))
+
+    if request.method == "POST":
+        name = request.form['name']
+        email = request.form['email']
+        date = request.form['date']
+
+        print(f"Booking for {product['name']} on {date} by {name} ({email})")
+        
+        return redirect(url_for("index"))
+
+    return render_template("booking.html", product=product)
+
+@app.route('/bookings')
+def view_bookings():
+    bookings = load_bookings()
+    return render_template('bookings.html', bookings=bookings)
 
 @app.route("/product/<int:id>")
 def product(id):
@@ -43,6 +81,10 @@ def add_to_cart(id):
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/contact/')
+def contact():
+    return render_template('contact.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

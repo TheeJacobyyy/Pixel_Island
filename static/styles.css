@@ -324,3 +324,75 @@ a {
 .about-section h1 {
     color: white;
 }
+
+.contact-info {
+  text-align: center;
+  margin: 70px auto;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.contact-form {
+  width: 50%;
+  margin: 20px auto;
+  background: rgba(0, 0, 0, 0.515);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+.book-now-btn {
+  display: inline-block;
+  background-color: #007bff; /* Blue */
+  color: white; /* White text */
+  padding: 8px 12px;
+  border: none;
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-now-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.booking {
+    color: white;
+    margin: 60px;
+}
+
+.booking h1 {
+  color: white;
+}

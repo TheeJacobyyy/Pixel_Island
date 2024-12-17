@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="booking">
+  <h1>Book: {{ product.name }}</h1>
+  <p>{{ product.description }}</p>
+  <p><strong>Price:</strong> ${{ product.price }}</p>
+
+  <form method="POST">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="date">Booking Date</label>
+    <input type="date" id="date" name="date" required>
+
+    <button type="submit" class="confirm-btn">Confirm Booking</button>
+  </form>
+</section>
+{% endblock %}

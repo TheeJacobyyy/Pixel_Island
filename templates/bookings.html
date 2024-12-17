@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}All Bookings{% endblock %}
+
+{% block content %}
+<h1>All Bookings</h1>
+    {% for booking in bookings %}
+        <div>
+            <h2>{{ booking.listing_name }}</h2>
+            <p>Booked by: {{ booking.name }} ({{ booking.email }})</p>
+            <p>From: {{ booking.start_date }} To: {{ booking.end_date }}</p>
+        </div>
+    {% endfor %}
+{% endfor %}
